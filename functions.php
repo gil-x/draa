@@ -6,8 +6,8 @@
 	=====================
 */
 function draa_script_enqueue() {
-	wp_enqueue_style('draa-css', get_template_directory_uri().'/css/draa.css', array(), '0.0.1', 'all' );
-	wp_enqueue_script('draa-js', get_template_directory_uri().'/js/draa.js', array(), '0.0.1', true );
+	wp_enqueue_style('draa-css', get_template_directory_uri().'/css/main.css', array(), '0.0.1', 'all' );
+	wp_enqueue_script('draa-js', get_template_directory_uri().'/js/main.js', array(), '0.0.1', true );
 	// wp_enqueue_style( 'google_web_fonts', 'https://fonts.googleapis.com/css?family=Anton|Fjalla+One|Catamaran' );
 }
 add_action('wp_enqueue_scripts', 'draa_script_enqueue');
