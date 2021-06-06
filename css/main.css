@@ -1,4 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=M+PLUS+Rounded+1c:wght@700&display=swap");
+@keyframes diagonalyse {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0% 25px, 100% 0%, 100% calc(100% - 50px), 0 calc(100% - 25px));
+  }
+}
 body {
-  background: black;
-  color: red;
+  color: #333333;
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
+body .content > h2, body .wp-block-group__inner-container > h2 {
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+main {
+  padding: 75vh 0 0 0;
+  width: 1440px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+h1, h2, h3 {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  text-transform: uppercase;
+  color: #e13756;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.wp-block-group {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
+  animation: diagonalyse 1s 5s 1 forwards;
+  width: 80%;
+  margin: 0 auto -75px;
+}
+.wp-block-group .wp-block-columns {
+  display: grid;
+}
+
+/*
+    ================
+    Insurance blocks
+    ================
+*/
+body.home .insurance .wp-block-group__inner-container .wp-block-columns {
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3rem 0;
+}
+body.home .insurance .wp-block-group__inner-container .wp-block-columns .wp-block-column {
+  padding: 140px 0 0 0;
+  overflow-y: visible;
+  text-align: center;
+}
+body.home .insurance .wp-block-group__inner-container .wp-block-columns .wp-block-column h2 {
+  font-size: 2.2rem;
+}
+body.home .insurance .wp-block-group__inner-container .wp-block-columns .wp-block-column:nth-child(1) {
+  background: url(../img/ensure-01-diplome-pink.svg) no-repeat center top/50%;
+}
+body.home .insurance .wp-block-group__inner-container .wp-block-columns .wp-block-column:nth-child(2) {
+  background: url(../img/ensure-02-experience-pro-pink.svg) no-repeat center top/50%;
+}
+body.home .insurance .wp-block-group__inner-container .wp-block-columns .wp-block-column:nth-child(3) {
+  background: url(../img/ensure-03-specialites-pink.svg) no-repeat center top/50%;
+}
+body.home .insurance .wp-block-group__inner-container .wp-block-columns .wp-block-column:nth-child(4) {
+  background: url(../img/ensure-04-satisfaction-pink.svg) no-repeat center top/50%;
+}
+
+/*
+    ===============
+    Surgeries
+    ===============
+*/
+body.home .surgeries .wp-block-group__inner-container {
+  background: #f7f6fe;
+}
+body.home .surgeries .wp-block-group__inner-container h2 {
+  margin: 0 0 1rem;
+  padding: 4rem 0 0;
+}
+body.home .surgeries .wp-block-group__inner-container .wp-block-columns {
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 10% 3rem;
+}
+
+/*
+    ===============
+    We can help you
+    ===============
+*/
+body.home .help .wp-block-group__inner-container .wp-block-columns {
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  padding: 3rem 0%;
+  background: linear-gradient(to right, #e13756, #e13756 50%, #6f28cc 50%, #6f28cc 100%);
+}
+body.home .help .wp-block-group__inner-container .wp-block-columns .wp-block-column > p {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  color: white;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+}
+body.home .help .wp-block-group__inner-container .wp-block-columns a {
+  padding: 0.5rem 1rem;
+  background: #f8e61b;
+  text-decoration: none;
+  transition: all 0.25s;
+  font-size: 1.2rem;
+  color: #333333;
+  border-radius: 2rem;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 1rem 0 0;
+}
+body.home .help .wp-block-group__inner-container .wp-block-columns a:hover {
+  background: #6f28cc;
+  color: white;
+}
+
+/*
+    ============
+    Testimonials
+    ============
+*/
+body.home .testimonials .wp-block-group__inner-container h2 {
+  margin: 0 0 1rem;
+  padding: 4rem 0 0;
+}
+body.home .testimonials .wp-block-group__inner-container .wp-block-columns {
+  overflow: hidden;
+  height: 20vh;
+  display: block;
+}
+body.home .testimonials .wp-block-group__inner-container .wp-block-columns .wp-block-column {
+  float: right;
+  width: 100%;
+  height: 100%;
+}
+body.home .testimonials .wp-block-group__inner-container .wp-block-columns .wp-block-column:not(:first-child) {
+  margin: 0;
+}
+body.home .testimonials .wp-block-group__inner-container .wp-block-columns .wp-block-column p {
+  display: grid;
+  place-items: center;
+  width: 80%;
+  height: 100%;
+  padding: 0 10%;
+}
+
+/*
+    =========
+    News bloc
+    =========
+*/
+body.home .news {
+  background: #f7f6fe;
+}
+body.home .news h2 {
+  margin: 0 0 1rem;
+  padding: 4rem 0 0;
+}
+body.home .news ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 50px;
+  list-style-type: none;
+}
+body.home .news ul li {
+  padding: 50px;
+}
+body.home .news ul li img {
+  width: 100%;
+}
+
+/*
+    ============
+    Contact bloc
+    ============
+*/
+body.home .contact {
+  background: #e13756;
+  padding: 3rem 0;
+}
+body.home .contact h2 {
+  color: white;
+}
+body.home .contact ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+}
+body.home .contact ul li {
+  color: white;
+}
+body.home .contact ul li:last-child {
+  padding: 0.5rem 1rem;
+  background: #f8e61b;
+  text-decoration: none;
+  transition: all 0.25s;
+  font-size: 1.2rem;
+  color: #333333;
+  border-radius: 2rem;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  text-transform: uppercase;
+}
+body.home .contact ul li:last-child:hover {
+  background: #6f28cc;
+  color: white;
+}
+
+/*
+    ==========
+    Google Map
+    ==========
+*/
+body.home .map {
+  animation: none;
+  margin: 0 auto;
+}
+body.home .map iframe {
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333333;
+  color: white;
+  margin: 0;
+  padding: 2rem;
+}
+footer .social a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 30px;
+  font-size: 0;
+  transition: transform 0.25s;
+}
+footer .social a:nth-child(1) {
+  background: url(../img/icon-linkedin.svg) no-repeat 55% 45%/50% rgba(255, 255, 255, 0.1);
+}
+footer .social a:nth-child(2) {
+  background: url(../img/icon-twitter.svg) no-repeat center center/50% rgba(255, 255, 255, 0.1);
+}
+footer .social a:hover {
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+  transform: scale(1.2);
+}
+
+header {
+  background: linear-gradient(to right, #e13756, #6f28cc);
+  padding: 4rem 1rem;
+}
+header .logo {
+  background: url(../img/logo.svg) no-repeat center left/25%;
+  padding: 4rem;
+}
+header nav#menu ul {
+  list-style-type: none;
+  display: flex;
 }

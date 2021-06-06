@@ -1,0 +1,352 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=M+PLUS+Rounded+1c:wght@700&display=swap');
+
+// @font-face {
+//   font-family: 'DMSans';
+//   src: url("../fonts/DMSans-Regular.ttf");
+//   src: local("â˜º"), url("../fonts/radomir-tinkov-gilroy-light.woff") format("woff"), url("../fonts/radomir-tinkov-gilroy-light_2.svg") format("svg");
+//   font-weight: 300;
+//   font-style: normal; }
+
+@keyframes diagonalyse {
+    0%   { clip-path: polygon(0%   0%, 100% 0%, 100%              100%, 0             100%); }
+    // 100% { clip-path: polygon(0% 5%, 100% 0%, 100%  90%, 0% 95%); }
+    100% { clip-path: polygon(0% 25px, 100% 0%, 100% calc(100% - 50px), 0 calc(100% - 25px)); }
+}
+
+
+body {
+    // background: url(../img/bg_home.png) no-repeat center -25vh fixed;
+    color: $black;
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+
+    .content > h2, .wp-block-group__inner-container > h2 {
+        text-align: center;
+        font-size: $font-l;
+    }
+    
+}
+
+main {
+    padding: 75vh 0 0 0;
+    width: 1440px;
+    margin: 0 auto;
+    background: rgba($color: $white, $alpha: 0.5);
+}
+
+h1, h2, h3 {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-transform: uppercase;
+    color: $pink;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// h2 {
+//     text-align: center;
+//     font-size: $font-xl;
+    
+// }
+
+.wp-block-group {
+
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
+    animation: diagonalyse 1s 5s 1 forwards;
+    width: 80%;
+    margin: 0 auto -75px;
+
+
+    .wp-block-columns {
+        display: grid;
+    }
+
+}
+
+/*
+    ================
+    Insurance blocks
+    ================
+*/
+body.home .insurance .wp-block-group__inner-container .wp-block-columns {
+    // display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 3rem 0;
+
+    .wp-block-column {
+        padding: 140px 0 0 0;
+        overflow-y: visible;
+        text-align: center;
+
+        h2 {
+            font-size: $font-l;
+        }
+    }
+
+    .wp-block-column:nth-child(1) {
+        background: url(../img/ensure-01-diplome-pink.svg)  no-repeat center top / 50%;
+    }
+
+    .wp-block-column:nth-child(2) {
+        background: url(../img/ensure-02-experience-pro-pink.svg)  no-repeat center top / 50%;
+    }
+
+    .wp-block-column:nth-child(3) {
+        background: url(../img/ensure-03-specialites-pink.svg)  no-repeat center top / 50%;
+    }
+
+    .wp-block-column:nth-child(4) {
+        background: url(../img/ensure-04-satisfaction-pink.svg)  no-repeat center top / 50%;
+    }
+}
+
+
+/*
+    ===============
+    Surgeries
+    ===============
+*/
+body.home .surgeries .wp-block-group__inner-container {
+
+    background: $gray-light;
+
+    h2 {
+        margin: 0 0 1rem;
+        padding: 4rem 0 0;
+    }
+
+    .wp-block-columns {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0 10% 3rem;
+        
+    }
+
+}
+
+/*
+    ===============
+    We can help you
+    ===============
+*/
+body.home .help .wp-block-group__inner-container .wp-block-columns {
+
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    // width: 80%;
+    padding: 3rem 0%;
+    // background: $pink;
+    background: linear-gradient(to right, $pink, $pink 50%, $purple 50%, $purple 100%);
+
+    .wp-block-column {
+
+        & > p {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            color: $white;
+            font-size: $font-l;
+            text-transform: uppercase;
+        }
+    }
+
+    a {
+        @include yellow-button;
+        display: inline-block;
+        margin: 1rem 0 0;
+    }
+}
+
+
+/*
+    ============
+    Testimonials
+    ============
+*/
+body.home .testimonials .wp-block-group__inner-container {
+
+    h2 {
+        margin: 0 0 1rem;
+        padding: 4rem 0 0;
+    }
+
+    .wp-block-columns {
+        overflow:hidden;
+        height: 20vh;
+
+        .wp-block-column {
+            &:not(:first-child) {
+                margin: 0;
+            }
+            // display: inline-block;
+            float: right;
+
+            p {
+                display: grid;
+                place-items: center;
+                width: 80%;
+                height: 100%;
+                padding: 0 10%;
+            }
+            
+            width: 100%;
+            height: 100%;
+        }
+        
+        // grid-template-columns: repeat(5, 1fr);
+        display: block;
+    }
+    
+    
+    // ul {
+    //     // list-style-type: none;
+    //     // display: grid;
+    //     // grid-template-columns: repeat(1, 1fr);
+    //     // place-items: center;
+    //     overflow: hidden;
+    //     border: 1px dashed blueviolet;
+    //     height: 300px;
+    //     // display: flex;
+
+    //     li {
+    //         // display: inline-block;
+    //         // vertical-align: middle;
+    //         // display: grid;
+    //         // place-items: center;
+    //         width: 100%;
+    //         height: 100%;
+    //         float: right;
+    //     }
+    // }
+}
+
+
+/*
+    =========
+    News bloc
+    =========
+*/
+body.home .news {
+
+    background: $gray-light;
+
+    h2 {
+        margin: 0 0 1rem;
+        padding: 4rem 0 0;
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 50px;
+        list-style-type: none;
+
+
+        li {
+            padding: 50px;
+            img {
+                width: 100%;
+                // margin: 0 5%;
+            }
+        }
+    }
+}
+
+/*
+    ============
+    Contact bloc
+    ============
+*/
+body.home .contact {
+
+    background: $pink;
+    padding: 3rem 0;
+    // z-index: 100;
+    // position: relative;
+
+
+    h2 {
+        color: $white;
+    }
+
+    ul {
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        place-items: center;
+        
+
+        li {
+
+            color: $white;
+
+            &:last-child {
+                @include yellow-button;
+            }
+        }
+    }
+}
+
+
+/*
+    ==========
+    Google Map
+    ==========
+*/
+body.home .map {
+
+    animation: none;
+    margin: 0 auto;
+
+    iframe {
+        width: 100%;
+        // z-index: -100;
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $black;
+    color: $white;
+    margin: 0;
+    padding: 2rem;
+
+    .social {
+        a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            border-radius: 30px;
+            // background: 
+            font-size: 0;
+            transition: transform 0.25s;
+
+            &:nth-child(1) {
+                // border: 1px solid red;
+                background: url(../img/icon-linkedin.svg)  no-repeat 55% 45% / 50% rgba($color: $white, $alpha: 0.1);
+            }
+
+            &:nth-child(2) {
+                // border: 1px solid green;
+                background: url(../img/icon-twitter.svg)  no-repeat center center / 50% rgba($color: $white, $alpha: 0.1);
+            }
+
+            &:hover {
+                filter: drop-shadow(0 0 3px rgba($color: $white, $alpha: 0.5) );
+
+                transform: scale(1.2);
+                // border: 1px solid red;
+            }
+        }
+
+
+    }
+}

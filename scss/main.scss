@@ -1,4 +1,4 @@
-body {
-    background: black;
-    color: red;
-}
+@import "vars";
+@import "mixins";
+@import "general";
+@import "navigation";

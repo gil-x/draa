@@ -1,0 +1,17 @@
+@mixin yellow-button {
+    padding: 0.5rem 1rem;
+    background: $yellow;
+    text-decoration: none;
+    // transition: background 0.25s;
+    transition: all 0.25s;
+    font-size: $font-m;
+    color: $black;
+    border-radius: 2rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-transform: uppercase;
+
+    &:hover {
+        background: $purple;
+        color: $white;
+    }
+}

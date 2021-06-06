@@ -1,0 +1,17 @@
+header {
+    background: linear-gradient(to right, $pink, $purple );
+    padding: 4rem 1rem;
+
+    .logo {
+        background: url(../img/logo.svg) no-repeat center left / 25%;
+        padding: 4rem;
+    }
+
+    nav#menu {
+        
+        ul {
+            list-style-type: none;
+            display: flex;
+        }
+    }
+}
