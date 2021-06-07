@@ -15,6 +15,20 @@
     100% { clip-path: polygon(0% 25px, 100% 0%, 100% calc(100% - 50px), 0 calc(100% - 25px)); }
 }
 
+@keyframes turn-off {
+    0%      { transform: rotateY(0deg); }
+    49.99%  { transform: rotateY(90deg); }
+    50.01%  { height: 0; font-size: 0; }
+    // 99.99%  { width:   0%; height: 100%; }
+    100%    { height: 0; font-size: 0; }
+}
+@keyframes turn-on {
+    0%      { transform: rotateY(90deg); }
+    50%     { transform: rotateY(90deg); }
+    50.01%  { transform: rotateY(90deg); }
+    100%    { transform:  rotateY(0deg); }
+}
+
 
 body {
     // background: url(../img/bg_home.png) no-repeat center -25vh fixed;
@@ -30,10 +44,11 @@ body {
 }
 
 main {
-    padding: 75vh 0 0 0;
-    width: 1440px;
+    // padding: 75vh 0 0 0;
+    padding: 0;
+    width: $body-width;
     margin: 0 auto;
-    background: rgba($color: $white, $alpha: 0.5);
+    // background: rgba($color: $white, $alpha: 0.5);
 }
 
 h1, h2, h3 {
@@ -57,11 +72,11 @@ a {
     
 // }
 
-.wp-block-group {
-
+.wp-block-group:not(.introduction, .video) {
+    // border: 5px solid orangered;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
     animation: diagonalyse 1s 5s 1 forwards;
-    width: 80%;
+    // width: 80%;
     margin: 0 auto -75px;
 
 
@@ -70,6 +85,76 @@ a {
     }
 
 }
+
+
+body.home h1 {
+    height: 5vh;
+    margin: 0;
+    padding: 0 0 0 10%;
+    color: $white;
+    // border: 1px dashed red;
+}
+
+/*
+    ================
+    video
+    ================
+*/
+body.home .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -9999;
+    width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
+    animation: diagonalyse 1s 5s 1 forwards;
+}
+
+/*
+    ============
+    Introduction
+    ============
+*/
+body.home .introduction {
+    min-height: 75vh;
+    margin: 0;
+    padding: 0;
+    // background: gray;
+
+    h2, p {
+        width: 40%;
+        padding: 0 0 0 10%;
+    }
+
+    h2 {
+        text-align: left;
+        font-size: $font-m;
+        // border-bottom: 5px solid $white;
+        margin-top: 0;
+        color: $white;
+    }
+
+    hr {
+        height: 5px;
+        clip-path: polygon(10% 0%, 20% 0%, 20% 100%, 10% 100%);
+    }
+
+    p {
+        font-size: $font-m;
+        font-weight: bold;
+        color: $white;
+    }
+
+    a {
+        @include yellow-button;
+        margin: 2rem 0;
+    }
+}
+
+
+
 
 /*
     ================
@@ -92,19 +177,19 @@ body.home .insurance .wp-block-group__inner-container .wp-block-columns {
     }
 
     .wp-block-column:nth-child(1) {
-        background: url(../img/ensure-01-diplome-pink.svg)  no-repeat center top / 50%;
+        background: url(../img/ensure-01-diplome-pink.svg)  no-repeat center top / 120px;
     }
 
     .wp-block-column:nth-child(2) {
-        background: url(../img/ensure-02-experience-pro-pink.svg)  no-repeat center top / 50%;
+        background: url(../img/ensure-02-experience-pro-pink.svg)  no-repeat center top / 120px;
     }
 
     .wp-block-column:nth-child(3) {
-        background: url(../img/ensure-03-specialites-pink.svg)  no-repeat center top / 50%;
+        background: url(../img/ensure-03-specialites-pink.svg)  no-repeat center top / 120px;
     }
 
     .wp-block-column:nth-child(4) {
-        background: url(../img/ensure-04-satisfaction-pink.svg)  no-repeat center top / 50%;
+        background: url(../img/ensure-04-satisfaction-pink.svg)  no-repeat center top / 120px;
     }
 }
 
@@ -118,16 +203,121 @@ body.home .surgeries .wp-block-group__inner-container {
 
     background: $gray-light;
 
-    h2 {
-        margin: 0 0 1rem;
-        padding: 4rem 0 0;
-    }
+    
 
     .wp-block-columns {
         grid-template-columns: repeat(4, 1fr);
-        padding: 0 10% 3rem;
+        padding: 3rem 10% 6rem;
+        
+        .wp-block-column {
+
+            width: 15vmax;
+            height: 15vmax;
+            // display: grid;
+            // place-items: center;
+            // filter: sepia(100%) saturate(150%) hue-rotate(180deg) brightness(0.4);
+            overflow-y: hidden;
+            transition: transform 1s, background 0.5s;
+            cursor: pointer;
+            // border: 1px dashed gray;
+
+            h2 {
+                // margin: 0 0 1rem;
+                // padding: 4rem 0 0;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                color: $white;
+                filter: invert(100%);
+                width: 100%;
+                height: 100%;
+                display: grid;
+                place-items: center;
+                transition: transform 1s, height 0.5s, border-radius 0.25s;
+                // transition-delay: 0.25s;
+                position: relative;
+                filter: sepia(100%) saturate(150%) hue-rotate(180deg) ;
+            }
+
+            p {
+                // display: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                // transform: rotateY(180deg);
+                width: 80%;
+                height: 80%;
+                // width:   0%; height:   0%;
+                margin: 0;
+                padding: 10%;
+                text-align: center;
+                color: $white;
+                font-weight: bold;
+                transition: transform 1s, border-radius 0.25s;
+                transform: rotateY(-90deg);
+                position: relative;
+                border-radius: 100vmax;
+
+                a {
+                    @include yellow-button($font-size: $font-s);
+                }
+            }
+
+            &:nth-child(1) {
+                h2 {
+                    background: url(../img/chir_01.jpg)  no-repeat 55% 45% / cover;
+                }
+            }
+
+            &:nth-child(2) {
+                h2 {
+                    background: url(../img/chir_02.jpg)  no-repeat 55% 45% / cover;
+                }
+            }
+
+            &:nth-child(3) {
+                h2 {
+                    background: url(../img/chir_03.jpg)  no-repeat 55% 45% / cover;
+                }
+            }
+
+            &:nth-child(4) {
+                h2 {
+                    background: url(../img/chir_04.jpg)  no-repeat 55% 45% / cover;
+                }
+            }
+
+            &:hover {
+                // animation: name duration timing-function delay iteration-count direction fill-mode;
+                // animation: turn 1s 0.5s 1 forwards;
+                // transform: rotateY(180deg);
+
+                h2 {
+                    // font-size: 0;
+                    // height: 0%;
+                    // transform: translateY(-100%) rotateY(90deg);
+                    // animation: turn-off 1s 1 forwards;
+                    transform: rotateY(90deg);
+                    height: 0;
+                    font-size: 0;
+                    border-radius: 100vmax;
+                }
+
+                p {
+                    // transform: rotateY(0deg);
+                    // animation: turn-on 1s 1 forwards;
+                    transform:  rotateY(0deg);
+                    border-radius: 0;
+                    background: $pink;
+                }
+            }
+
+            
+        }
+        
         
     }
+
 
 }
 
@@ -152,14 +342,28 @@ body.home .help .wp-block-group__inner-container .wp-block-columns {
             color: $white;
             font-size: $font-l;
             text-transform: uppercase;
+
+            a {
+                @include yellow-button;
+                margin: 1rem 0 0;
+            }
+
+            &.purple a {
+                @include yellow-button($font-m, $pink);
+            }
         }
     }
 
-    a {
-        @include yellow-button;
-        display: inline-block;
-        margin: 1rem 0 0;
-    }
+    // a {
+    //     @include yellow-button;
+    //     // display: inline-block;
+    //     margin: 1rem 0 0;
+
+    //     &.pink {
+    //         @include yellow-button($pink);
+    //     }
+    // }
+    
 }
 
 
@@ -243,17 +447,43 @@ body.home .news {
     ul {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        column-gap: 50px;
+        column-gap: 8vmax;
         list-style-type: none;
+        padding: 1rem 8vmax 12vh;
 
 
         li {
-            padding: 50px;
+            margin: 0;
+            // padding: 5vw;
+            // border: 1px dashed pink;
+
+            // &:first-child {
+            //     padding: 5vw 5vw 5vw 10vw;
+            // }
+            // &:last-child {
+            //     padding: 5vw 10vw 5vw 5vw;
+            // }
+
+            transition: transform 0.5s, background 0.25s;
+            padding: 1vmax;
+
+            &:hover {
+                background: $pink;
+                // outline: 10px solid $pink;
+                transform: scale(1.1);
+
+                * {
+                    color: $white;
+                    text-decoration: none;
+                }
+            }
             img {
                 width: 100%;
                 // margin: 0 5%;
             }
         }
+
+
     }
 }
 
@@ -265,9 +495,9 @@ body.home .news {
 body.home .contact {
 
     background: $pink;
-    padding: 3rem 0;
-    // z-index: 100;
-    // position: relative;
+    padding: 3rem 0 5rem;
+    z-index: 100;
+    position: relative;
 
 
     h2 {
@@ -285,7 +515,7 @@ body.home .contact {
 
             color: $white;
 
-            &:last-child {
+            &:last-child a {
                 @include yellow-button;
             }
         }
@@ -305,7 +535,7 @@ body.home .map {
 
     iframe {
         width: 100%;
-        // z-index: -100;
+        z-index: -100;
     }
 }
 
@@ -316,7 +546,8 @@ footer {
     background: $black;
     color: $white;
     margin: 0;
-    padding: 2rem;
+    // padding: 2rem;
+    padding: 2rem calc((100% - 1440px) / 2);
 
     .social {
         a {

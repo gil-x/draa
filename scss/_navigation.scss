@@ -1,10 +1,37 @@
+@keyframes diagonalyse-menu {
+    0%   { clip-path: polygon(0%   0%, 100% 0%, 100%              100%, 0             100%) ; }
+    100% { clip-path: polygon(0%   0%, 100% 0%, 100% calc(100% - 50px), 0 calc(100% - 25px)); }
+}
+
 header {
     background: linear-gradient(to right, $pink, $purple );
-    padding: 4rem 1rem;
+    max-width: $body-width;
+    margin: 0 auto;
+    padding: 0 10%;
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
+    animation: diagonalyse-menu 1s 1s 1 forwards;
 
     .logo {
-        background: url(../img/logo.svg) no-repeat center left / 25%;
-        padding: 4rem;
+
+        transition: filter 1.5s, transform 0.5s;
+        
+        &:hover {
+            filter: drop-shadow(0 0 10px rgba($color: $white, $alpha: 0.25) );
+            // transform: scale(1.05);
+            transform: scale(1.05) rotateZ(-1deg);
+        }
+
+        a {
+            display: inline-block;
+            padding: 4rem;
+            width: 15vw;
+            height: auto;
+            background: url(../img/logo.svg) no-repeat center left / 75%;
+        }
     }
 
     nav#menu {
@@ -12,6 +39,53 @@ header {
         ul {
             list-style-type: none;
             display: flex;
+
+            li {
+
+                margin: 0 15px;
+                display: grid;
+                place-items: center;
+                // cursor: pointer;
+
+                a {
+                    
+                    font-family: 'M PLUS Rounded 1c', sans-serif;
+                    text-transform: uppercase;
+                    font-size: $font-m;
+                    color: $white;
+
+                }
+
+                &.lang-item {
+                    
+                    width: 40px;
+                    height: 40px;
+                    margin: 10px;
+                    border-radius: 30px;
+                    background: $pink;
+                    transition: transform 0.25s;
+
+                    &:hover {
+                        background: $white;
+                        filter: drop-shadow(0 0 3px rgba($color: $white, $alpha: 0.5) );
+                        transform: scale(1.2);
+                    }
+
+                    &-fr {
+                        margin-left: 50px;
+                    }
+
+                    a {
+                        
+
+                        img {
+                            width: 20px !important;
+                            height: auto !important;
+                        }
+                    }
+                    
+                }
+            }
         }
     }
 }

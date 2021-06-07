@@ -18,9 +18,7 @@ else {
 <header>
 	<div class="logo">
 		<?php echo '<a href="' . get_home_url() . '" title="Revenir à l\'accueil"> 
-        <span>Docteur Ahlam</span><br>
-        <span>Arnaout</span><br>
-        <span>chirurgie de la main et du poignet</span>
+
         </a>'; ?>
 	</div>
 
