@@ -123,11 +123,10 @@ header .logo a {
 header nav#menu ul {
   list-style-type: none;
   display: flex;
+  align-items: center;
 }
 header nav#menu ul li {
   margin: 0 15px;
-  display: grid;
-  place-items: center;
 }
 header nav#menu ul li a {
   font-family: "M PLUS Rounded 1c", sans-serif;
@@ -136,7 +135,7 @@ header nav#menu ul li a {
   color: white;
 }
 header nav#menu ul li:hover .sub-menu {
-  transform: translateY(100px);
+  transform: translateY(0);
   opacity: 1;
 }
 header nav#menu ul li.lang-item {
@@ -146,6 +145,8 @@ header nav#menu ul li.lang-item {
   border-radius: 30px;
   background: #e13756;
   transition: transform 0.25s;
+  display: grid;
+  place-items: center;
 }
 header nav#menu ul li.lang-item:hover {
   background: white;

@@ -15,6 +15,7 @@ header {
     min-height: 20vh;
     display: flex;
     align-items: center;
+    // align-items: flex-start;
     justify-content: space-between;
     z-index: 99;
 
@@ -51,11 +52,13 @@ header {
         ul {
             list-style-type: none;
             display: flex;
+            // align-items: flex-start;
+            align-items: center;
 
             li {
                 margin: 0 15px;
-                display: grid;
-                place-items: center;
+                // display: grid;
+                // place-items: center;
 
                 a {
                     font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -67,7 +70,7 @@ header {
 
                 &:hover {
                     .sub-menu {
-                        transform: translateY(100px);
+                        transform: translateY(0);
                         opacity: 1;
                     }
                 }
@@ -80,6 +83,8 @@ header {
                     border-radius: 30px;
                     background: $pink;
                     transition: transform 0.25s;
+                    display: grid;
+                    place-items: center;
 
                     &:hover {
                         background: $white;
