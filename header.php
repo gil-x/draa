@@ -16,19 +16,20 @@ else {
 ?>
 
 <header>
+
 	<div class="logo">
 		<?php echo '<a href="' . get_home_url() . '" title="Revenir à l\'accueil"> 
 
         </a>'; ?>
 	</div>
 
-<?php
+	<?php
+	echo '<nav id="menu" class="menu-off">';
+	wp_nav_menu(array('theme_location'=>'primary'));
+	echo '</nav>';
+	?>
 
-echo '<nav id="menu" class="menu-off">';
-wp_nav_menu(array('theme_location'=>'primary'));
-echo '</nav>';
-
-?>
+	<div class="header-bg"></div>
 
 </header>
 

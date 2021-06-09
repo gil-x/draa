@@ -1,0 +1,424 @@
+body.home .wp-block-group:not(.introduction, .video, .insurance) {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
+    animation: diagonalyse 1s 2s 1 forwards;
+    margin: 0 auto -75px;
+
+    .wp-block-columns {
+        display: grid;
+
+        @media screen and (max-width: 800px) {
+            display: block;
+        }
+    }
+}
+
+body.home h1 {
+    height: 5vh;
+    margin: 0;
+    padding: 0 0 0 10%;
+    color: $white;
+    // border: 1px dashed red;
+}
+
+/*
+    ================
+    video
+    ================
+*/
+body.home .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -9999;
+    width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
+    animation: diagonalyse 1s 0s 1 forwards;
+}
+
+/*
+    ============
+    Introduction
+    ============
+*/
+body.home .introduction {
+    min-height: 75vh;
+    margin: 0;
+    padding: 0;
+
+    h2, p {
+        width: 40%;
+        padding: 0 0 0 10%;
+    }
+
+    h2 {
+        text-align: left;
+        font-size: $font-m;
+        margin-top: 0;
+        color: $white;
+    }
+
+    hr {
+        height: 5px;
+        clip-path: polygon(10% 0%, 20% 0%, 20% 100%, 10% 100%);
+    }
+
+    p {
+        font-size: $font-m;
+        font-weight: bold;
+        color: $white;
+    }
+
+    a {
+        @include yellow-button;
+        margin: 2rem 0;
+    }
+}
+
+/*
+    ================
+    Insurance blocks
+    ================
+*/
+body.home .insurance .wp-block-group__inner-container .wp-block-columns {
+    grid-template-columns: repeat(4, 1fr);
+    // @media screen and (max-width: 800px) {
+    //     // display: block;
+    //     grid-template-columns: repeat(2, 1fr);
+    // }
+    padding: 0 0 5rem;
+
+    .wp-block-column {
+        padding: 140px 0 0 0;
+        overflow-y: visible;
+        text-align: center;
+        transition: all 0.5s;
+
+        h2 {
+            font-size: $font-l;
+        }
+
+        &:nth-child(1) {
+            @include svg-insure-1;
+            // background: url(../img/ensure-01-diplome-pink.svg)  no-repeat center 5% / 120px;
+        }
+    
+        &:nth-child(2) {
+            background: url(../img/ensure-02-experience-pro-pink.svg)  no-repeat center 5% / 120px;
+        }
+    
+        &:nth-child(3) {
+            background: url(../img/ensure-03-specialites-pink.svg)  no-repeat center 5% / 120px;
+        }
+    
+        &:nth-child(4) {
+            background: url(../img/ensure-04-satisfaction-pink.svg)  no-repeat center 5% / 120px;
+        }
+
+        &:hover {
+            background-position: center 0%;
+            background-size: 130px;
+        }
+    }
+}
+
+/*
+    ===============
+    Surgeries
+    ===============
+*/
+body.home .surgeries .wp-block-group__inner-container {
+
+    background: $gray-light;
+    padding: 5vh 0 0 0;
+
+    .wp-block-columns {
+
+        grid-template-columns: repeat(4, 1fr);
+        padding: 5vh 10% 15vh;
+        
+        .wp-block-column {
+
+            width: 15vmax;
+            height: 15vmax;
+            overflow-y: hidden;
+            transition: transform 1s, background 0.5s;
+            cursor: pointer;
+
+            h2 {
+
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                color: $white;
+                filter: invert(100%);
+                width: 100%;
+                height: 100%;
+                display: grid;
+                place-items: center;
+                transition: transform 1s, height 0.5s, border-radius 0.25s;
+                position: relative;
+                filter: sepia(100%) saturate(150%) hue-rotate(180deg) ;
+            }
+
+            p {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                width: 80%;
+                height: 80%;
+                margin: 0;
+                padding: 10%;
+                text-align: center;
+                color: $white;
+                font-weight: bold;
+                transition: transform 1s, border-radius 0.25s;
+                transform: rotateY(-90deg);
+                position: relative;
+                border-radius: 100vmax;
+
+                a {
+                    @include yellow-button($font-size: $font-s);
+                }
+            }
+
+            &:nth-child(1) {
+                h2 {
+                    background: url(../img/chir_01.jpg)  no-repeat 55% 45% / cover;
+                }
+            }
+
+            &:nth-child(2) {
+                h2 {
+                    background: url(../img/chir_02.jpg)  no-repeat 55% 45% / cover;
+                }
+            }
+
+            &:nth-child(3) {
+                h2 {
+                    background: url(../img/chir_03.jpg)  no-repeat 55% 45% / cover;
+                }
+            }
+
+            &:nth-child(4) {
+                h2 {
+                    background: url(../img/chir_04.jpg)  no-repeat 55% 45% / cover;
+                }
+            }
+
+            &:hover {
+
+                h2 {
+                    transform: rotateY(90deg);
+                    height: 0;
+                    font-size: 0;
+                    border-radius: 100vmax;
+                }
+
+                p {
+                    transform:  rotateY(0deg);
+                    border-radius: 0;
+                    background: $pink;
+                }
+            }
+        }
+    }
+}
+
+/*
+    ===============
+    We can help you
+    ===============
+*/
+body.home .help .wp-block-group__inner-container .wp-block-columns {
+
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    padding: 3rem 0%;
+    background: linear-gradient(to right, $pink, $pink 50%, $purple 50%, $purple 100%);
+
+    .wp-block-column {
+
+        & > p {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            color: $white;
+            font-size: $font-l;
+            text-transform: uppercase;
+
+            a {
+                @include yellow-button;
+                margin: 1rem 0 0;
+            }
+
+            &.purple a {
+                @include yellow-button($font-m, $pink);
+            }
+        }
+    }
+}
+
+/*
+    ============
+    Testimonials
+    ============
+*/
+body.home .testimonials .wp-block-group__inner-container {
+
+    min-height: 350px;
+
+    h2 {
+        margin: 0 0 1rem;
+        padding: 4rem 0 0;
+    }
+
+    .slider {
+        width: 500%;
+
+        .wp-block-group__inner-container {
+            display: flex;
+            transition: transform 1s;
+
+            & > p {
+                padding: 5vmax;
+                width: calc(20% - 10vmax);
+
+                &::before {
+                    content: "“ ";
+                    font-size: 5rem;
+                    color: $pink;
+                    position: absolute;
+                    transform: translate(-2rem, -5rem);
+                }
+                &::after {
+                    content: " „";
+                    font-size: 2rem;
+                    color: $pink;
+                    // position: absolute;
+                    // transform: translate(2rem, 2rem);
+                }
+            }
+        }
+    }
+}
+
+/*
+    =========
+    News bloc
+    =========
+*/
+body.home .news {
+
+    background: $gray-light;
+
+    h2 {
+        margin: 0 0 1rem;
+        padding: 4rem 0 0;
+    }
+
+    ul {
+        display: grid;
+
+        @media screen and (max-width: 800px) {
+            display: block;
+        }
+        
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 8vmax;
+        list-style-type: none;
+        padding: 1rem 8vmax 12vh;
+
+
+        li {
+            margin: 0;
+            padding: 1vmax;
+            transition: transform 0.5s, background 0.25s;
+
+            &:hover {
+                background: $pink;
+                transform: scale(1.1);
+
+                * {
+                    color: $white;
+                    text-decoration: none;
+                }
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/*
+    ============
+    Contact bloc
+    ============
+*/
+body.home .contact {
+
+    background: $pink;
+    padding: 3rem 0 5rem;
+    z-index: 100;
+    position: relative;
+
+    h2 {
+        color: $white;
+    }
+
+    ul {
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        place-items: center;
+
+        li {
+            display: flex;
+            align-items: center;
+            color: $white;
+            height: 40px;
+            padding: 0 0 0 50px;
+            transition: background 0.5s;
+
+            &:nth-child(1) {
+                background: url(../img/icon-phone-purple.svg)  no-repeat 5px center / 30px;
+                cursor: pointer;
+
+                &:hover {
+                    background-size: 40px;
+                    background-position: left center;
+                }
+            }
+
+            &:nth-child(2) {
+                background: url(../img/icon-mail-purple.svg)  no-repeat 5px center / 30px;
+                cursor: pointer;
+
+                &:hover {
+                    background-size: 40px;
+                    background-position: left center;
+                }
+            }
+
+            &:last-child a {
+                @include yellow-button;
+            }
+        }
+    }
+}
+
+/*
+    ==========
+    Google Map
+    ==========
+*/
+body.home .map .wp-block-group__inner-container {
+
+    animation: none;
+    margin: 0 auto 50px;
+
+    iframe {
+        width: 100%;
+        z-index: -100;
+    }
+}
