@@ -20,6 +20,10 @@ html {
     @media screen and (max-width: 1366px) {
         font-size: 13px;
     }
+
+    // @media screen and (max-width: 800px) {
+    //     font-size: 18px;
+    // }
 }
 
 body {
@@ -39,6 +43,10 @@ main {
     padding: 0;
     width: $body-width;
     margin: 0 auto;
+
+    @media screen and (max-width: 800px) {
+        width: 100%;
+    }
 }
 
 h1, h2, h3 {
@@ -90,5 +98,10 @@ footer {
                 transform: scale(1.2);
             }
         }
+    }
+
+    @media screen and (max-width: 800px) {
+        display: block;
+        text-align: center;
     }
 }

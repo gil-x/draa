@@ -17,4 +17,10 @@
         color: $white;
         transform: scale(1.1);
     }
+
+    @media screen and (max-width: 800px) {
+        // font-size: $font-l;
+        padding: 1rem 2rem;
+        border-radius: 5rem;
+    }
 }

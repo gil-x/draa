@@ -8,6 +8,10 @@ body.home .wp-block-group:not(.introduction, .video, .insurance) {
 
         @media screen and (max-width: 800px) {
             display: block;
+
+            // .wp-block-column {
+            //     width: 100% !important;
+            // }
         }
     }
 }
@@ -35,6 +39,16 @@ body.home .video {
     overflow: hidden;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
     animation: diagonalyse 1s 0s 1 forwards;
+
+    @media screen and (max-width: 800px) {
+        top: 35vh;
+        width: auto;
+        height: 33.333vh;
+        overflow: hidden;
+        clip-path: none;
+        animation: none;
+        transform: scale(3);
+    }
 }
 
 /*
@@ -42,14 +56,33 @@ body.home .video {
     Introduction
     ============
 */
+
+body.home h1 {
+    @media screen and (max-width: 800px) {
+        font-size: $font-xl;
+        text-align: center;
+        padding: 3vh 0;
+    }
+
+}
 body.home .introduction {
     min-height: 75vh;
     margin: 0;
     padding: 0;
 
+    @media screen and (max-width: 800px) {
+        text-align: center;
+    }
+
     h2, p {
         width: 40%;
         padding: 0 0 0 10%;
+
+        @media screen and (max-width: 800px) {
+            width: 80%;
+            padding: 2.5% 10%;
+            
+        }
     }
 
     h2 {
@@ -57,22 +90,43 @@ body.home .introduction {
         font-size: $font-m;
         margin-top: 0;
         color: $white;
+
+        @media screen and (max-width: 800px) {
+            // font-size: $font-l;
+            // color: $black;
+            text-align: center;
+        }
     }
 
     hr {
         height: 5px;
         clip-path: polygon(10% 0%, 20% 0%, 20% 100%, 10% 100%);
+
+        @media screen and (max-width: 800px) {
+            clip-path: polygon(35% 0%, 65% 0%, 65% 100%, 35% 100%);
+        }
     }
 
     p {
         font-size: $font-m;
         font-weight: bold;
         color: $white;
+
+        // @media screen and (max-width: 800px) {
+        //     color: $black;
+        // }
     }
 
     a {
         @include yellow-button;
         margin: 2rem 0;
+
+        @media screen and (max-width: 800px) {
+            // display: block;
+            // width: 80%;
+            margin: 4rem auto;
+            // text-align: center;
+        }
     }
 }
 
@@ -97,6 +151,10 @@ body.home .insurance .wp-block-group__inner-container .wp-block-columns {
 
         h2 {
             font-size: $font-l;
+
+            @media screen and (max-width: 800px) {
+                font-size: $font-xl;
+            }
         }
 
         &:nth-child(1) {
@@ -145,6 +203,16 @@ body.home .surgeries .wp-block-group__inner-container {
             overflow-y: hidden;
             transition: transform 1s, background 0.5s;
             cursor: pointer;
+
+            @media screen and (max-width: 800px) {
+                display: block;
+                height: 25vmax;
+                width: 100%;
+
+                &:nth-child(2n) {
+                    margin: 1rem 0 ;
+                }
+            }
 
             h2 {
 
@@ -238,6 +306,10 @@ body.home .help .wp-block-group__inner-container .wp-block-columns {
     padding: 3rem 0%;
     background: linear-gradient(to right, $pink, $pink 50%, $purple 50%, $purple 100%);
 
+    @media screen and (max-width: 800px) {
+        background: linear-gradient(to bottom, $pink, $pink 50%, $purple 50%, $purple 100%);
+    }
+
     .wp-block-column {
 
         & > p {
@@ -253,6 +325,17 @@ body.home .help .wp-block-group__inner-container .wp-block-columns {
 
             &.purple a {
                 @include yellow-button($font-m, $pink);
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            display: block;
+            height: 25vmax;
+            width: 100%;
+            text-align: center;
+
+            &:nth-child(2n) {
+                margin: 0;
             }
         }
     }
@@ -343,8 +426,21 @@ body.home .news {
                     text-decoration: none;
                 }
             }
+
             img {
                 width: 100%;
+
+                @media screen and (max-width: 800px) {
+                    display: block;
+                    // max-height: 75vh;
+                    max-width: 80%;
+                    margin: 2rem auto;
+                }
+            }
+
+            @media screen and (max-width: 800px) {
+                margin: 20px 0;
+                text-align: center;
             }
         }
     }
@@ -372,6 +468,14 @@ body.home .contact {
         grid-template-columns: repeat(3, 1fr);
         place-items: center;
 
+        @media screen and (max-width: 800px) {
+            // display: block;
+            grid-template-columns: repeat(2, 1fr);
+            margin: 0;
+            padding: 3rem;
+            gap: 2rem;
+        }
+
         li {
             display: flex;
             align-items: center;
@@ -380,13 +484,27 @@ body.home .contact {
             padding: 0 0 0 50px;
             transition: background 0.5s;
 
+            @media screen and (max-width: 800px) {
+                height: 60px;
+                padding: 50px 0 0 0;
+            }
+
             &:nth-child(1) {
                 background: url(../img/icon-phone-purple.svg)  no-repeat 5px center / 30px;
                 cursor: pointer;
 
+                @media screen and (max-width: 800px) {
+                    background: url(../img/icon-phone-purple.svg)  no-repeat top center / 60px;
+                }
+
                 &:hover {
                     background-size: 40px;
                     background-position: left center;
+
+                    @media screen and (max-width: 800px) {
+                        background-size: 50px;
+                        background-position: top center;
+                    }
                 }
             }
 
@@ -394,14 +512,34 @@ body.home .contact {
                 background: url(../img/icon-mail-purple.svg)  no-repeat 5px center / 30px;
                 cursor: pointer;
 
+                @media screen and (max-width: 800px) {
+                    background: url(../img/icon-mail-purple.svg)  no-repeat top center / 60px;
+                }
+
                 &:hover {
                     background-size: 40px;
                     background-position: left center;
+
+                    @media screen and (max-width: 800px) {
+                        background-size: 50px;
+                        background-position: top center;
+                    }
                 }
             }
 
-            &:last-child a {
-                @include yellow-button;
+            &:last-child {
+
+                @media screen and (max-width: 800px) {
+                    grid-column-start: 1;
+                    grid-row-start: 2;
+                    grid-row-end: 3;
+                    grid-column-end: 4;
+                    padding: 0;
+                }
+
+                a {
+                    @include yellow-button;
+                }
             }
         }
     }

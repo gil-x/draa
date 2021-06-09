@@ -19,6 +19,12 @@ header {
     justify-content: space-between;
     z-index: 99;
 
+    @media screen and (max-width: 800px) {
+        min-height: none;
+        display: block;
+        text-align: center;
+    }
+
     .header-bg {
         background: linear-gradient(to right, $pink, $purple );
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
@@ -46,9 +52,25 @@ header {
             height: auto;
             background: url(../img/logo.svg) no-repeat center left / 75%;
         }
+
+        @media screen and (max-width: 800px) {
+            position: absolute;
+
+            a {
+                width: 50vw;
+                margin: 0 auto;
+            }
+        }
     }
 
     nav#menu {
+
+        @media screen and (max-width: 800px) {
+            position: fixed;
+            top: 0;
+            left: -1000vw;
+        }
+
         ul {
             list-style-type: none;
             display: flex;
