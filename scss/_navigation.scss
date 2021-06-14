@@ -19,6 +19,17 @@ header {
     justify-content: space-between;
     z-index: 99;
 
+    #burger {
+        position: fixed;
+        top: 5vh;
+        left: 85vw;
+        z-index: 1000;
+        width: 10vw;
+        height: 30px;
+        border: 1px none;
+        background: url(../img/burger.svg) no-repeat;
+    }
+
     @media screen and (max-width: 800px) {
         min-height: none;
         display: block;
@@ -64,12 +75,6 @@ header {
     }
 
     nav#menu {
-
-        @media screen and (max-width: 800px) {
-            position: fixed;
-            top: 0;
-            left: -1000vw;
-        }
 
         ul {
             list-style-type: none;
@@ -154,6 +159,75 @@ header {
                     }
                 }
             }
+        }
+
+        @media screen and (max-width: 800px) {
+            position: fixed;
+            top: 0;
+            left: 200vw;
+            // margin: 0;
+            // padding: 0;
+            transition: left 0.5s;
+            
+            &.visible {
+                left: 0;
+            }
+
+            .menu-menu-principal-container ul {
+                margin: 0;
+                padding: 0;
+                width: 100vw;
+                height: 100vh;
+                display: block;
+                // flex-direction: column;
+                background: $purple;
+                z-index: 10000000;
+                // align-items: flex-start;
+                // justify-content: space-between;
+                text-align: left;
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+                & > li {
+                    &:first-child {
+                        padding-top: 10vh;
+                    }
+                    margin: 0; padding: 2.5vh 0 2.5vh 10vw;
+
+                    &.lang-item {
+                        background: none;
+                        // display: inline-block;
+                        width: 50vw;
+                        margin: 0;
+                        padding: 15vh 0 0 0;
+                        display: grid;
+                        place-items: center;
+                        float: left;
+
+                        &:first-child {
+                            // background: red;
+                            float: left;
+                            
+                        }
+                    }
+                }
+
+                .sub-menu {
+                    transform: none;
+                    opacity: 1;
+                    position: static;
+                    padding: 0;
+                    height: auto;
+                    display: block;
+
+                    & > li:first-child {
+                        padding-top: 2.5vh;
+                    }
+                }
+
+                
+            }
+            
+
         }
     }
 }

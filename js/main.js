@@ -15,11 +15,19 @@ const gap = (max) => {
 };
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM entièrement chargé et analysé");
+    const burger = document.getElementById('burger');
+    const menu = document.querySelector('nav');
+    document.addEventListener('click', (event) => {
+        const element = event.target;
+        if (element.id === "burger") {
+            console.log('burger fired!');
+            menu.classList.toggle('visible');
+        }
+    });
     if (document.body.classList.contains('home')) {
         const testimonialsSlider = document.querySelector('.testimonials .slider .wp-block-group__inner-container');
         const testimonials = Array.from(testimonialsSlider.querySelectorAll('p'));
         console.log(testimonialsSlider);
-        console.log(`length is ${testimonials.length}`);
         let roll = setInterval(() => {
             gap(testimonials.length);
             setTranslation(testimonialsSlider, currentGap);

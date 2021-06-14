@@ -107,6 +107,16 @@ header {
   justify-content: space-between;
   z-index: 99;
 }
+header #burger {
+  position: fixed;
+  top: 5vh;
+  left: 85vw;
+  z-index: 1000;
+  width: 10vw;
+  height: 30px;
+  border: 1px none;
+  background: url(../img/burger.svg) no-repeat;
+}
 @media screen and (max-width: 800px) {
   header {
     min-height: none;
@@ -145,13 +155,6 @@ header .logo a {
   header .logo a {
     width: 50vw;
     margin: 0 auto;
-  }
-}
-@media screen and (max-width: 800px) {
-  header nav#menu {
-    position: fixed;
-    top: 0;
-    left: -1000vw;
   }
 }
 header nav#menu ul {
@@ -216,6 +219,58 @@ header nav#menu ul li .sub-menu li:hover {
 }
 header nav#menu ul li .sub-menu li:hover a {
   text-decoration: none;
+}
+@media screen and (max-width: 800px) {
+  header nav#menu {
+    position: fixed;
+    top: 0;
+    left: 200vw;
+    transition: left 0.5s;
+  }
+  header nav#menu.visible {
+    left: 0;
+  }
+  header nav#menu .menu-menu-principal-container ul {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background: #6f28cc;
+    z-index: 10000000;
+    text-align: left;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  header nav#menu .menu-menu-principal-container ul > li {
+    margin: 0;
+    padding: 2.5vh 0 2.5vh 10vw;
+  }
+  header nav#menu .menu-menu-principal-container ul > li:first-child {
+    padding-top: 10vh;
+  }
+  header nav#menu .menu-menu-principal-container ul > li.lang-item {
+    background: none;
+    width: 50vw;
+    margin: 0;
+    padding: 15vh 0 0 0;
+    display: grid;
+    place-items: center;
+    float: left;
+  }
+  header nav#menu .menu-menu-principal-container ul > li.lang-item:first-child {
+    float: left;
+  }
+  header nav#menu .menu-menu-principal-container ul .sub-menu {
+    transform: none;
+    opacity: 1;
+    position: static;
+    padding: 0;
+    height: auto;
+    display: block;
+  }
+  header nav#menu .menu-menu-principal-container ul .sub-menu > li:first-child {
+    padding-top: 2.5vh;
+  }
 }
 
 body.home .wp-block-group:not(.introduction, .video, .insurance) {
@@ -314,10 +369,12 @@ body.home .introduction h2 {
 body.home .introduction hr {
   height: 5px;
   clip-path: polygon(10% 0%, 20% 0%, 20% 100%, 10% 100%);
+  z-index: -9999;
 }
 @media screen and (max-width: 800px) {
   body.home .introduction hr {
     clip-path: polygon(35% 0%, 65% 0%, 65% 100%, 35% 100%);
+    position: relative;
   }
 }
 body.home .introduction p {
@@ -685,8 +742,6 @@ body.home .news ul li img {
 body.home .contact {
   background: #e13756;
   padding: 3rem 0 5rem;
-  z-index: 100;
-  position: relative;
 }
 body.home .contact h2 {
   color: white;
@@ -803,4 +858,44 @@ body.home .map .wp-block-group__inner-container {
 body.home .map .wp-block-group__inner-container iframe {
   width: 100%;
   z-index: -100;
+}
+
+.page h1 {
+  width: 80%;
+  margin: 0 auto 2rem;
+}
+.page main .post-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10vw;
+}
+.page main .post-container img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.page main .post-container .post-date {
+  display: inline-block;
+  margin: 1rem 0 0 0;
+  color: #333333;
+  opacity: 0.5;
+}
+.page main .post-container p {
+  text-align: justify;
+}
+
+.featured-image {
+  width: 100%;
+}
+
+.posts-pagination {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto 2rem;
+  text-align: justify;
+}
+.posts-pagination li {
+  margin: 0 15px;
 }

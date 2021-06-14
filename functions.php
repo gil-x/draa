@@ -25,4 +25,21 @@ function draa_theme_setup() {
 }
 add_action('init', 'draa_theme_setup');
 
+/*
+	================
+	   PAGINATION
+	================
+*/
+
+// function draa_pagination() {
+// 	echo '<ul class="posts-pagination">';
+// 	$pages = paginate_links(['type' => 'array']);
+// 	foreach($pages as $page) {
+// 		echo '<li>';
+// 		echo $page;
+// 		echo '</li>';
+// 	}
+// 	echo '</ul>';
+// }
+
 ?>

@@ -23,36 +23,6 @@
         SLIDER
     ==============
 */
-// const testimonialsList = document.getElementById('testimonials__list');
-// const testimonialPrev = document.getElementById('testimonial__prev');
-// const testimonialNext = document.getElementById('testimonial__next');
-
-// const steps = ['0', '-25%', '-50%', '-75%', '-100%'];
-// let testimonialIndex = 0;
-// let testimonialDirection = 'right';
-
-
-// const rolltestimonials = () => {
-//     if (testimonialDirection == 'right') {
-        
-//         if (testimonialIndex == steps.length) {
-//             testimonialDirection = 'left';
-//             return;
-//         }
-//         testimonialIndex++;
-
-//     } else if (testimonialDirection == 'left') {
-        
-//         if (testimonialIndex == 0) {
-//             testimonialDirection = 'right';
-//             return;
-//         }
-//         testimonialIndex--;
-
-//     }
-//     testimonialsList.style.transform = `translateX(${steps[testimonialIndex]})`;
-// }
-
 let currentGap:number = 0;
 let gapDirection = -1; // To right
 
@@ -67,6 +37,35 @@ const gap = (max:number) => {
     }
 }
 
+
+
+
+// const toggleMenu = () {
+//     menu.classList.toggle('visible');
+//     callMenuIcon.classList.toggle('black');
+//     event.stopPropagation();
+// }
+
+// function toggleSubMenu() {
+//     subMenu.classList.toggle('submenu-on');
+//     servicesMenuItem.classList.toggle('on');
+//     event.stopPropagation();
+// }
+
+// if ( getComputedStyle(callMenuButton, null).display === 'block' ) {
+//     callMenuButton.addEventListener('touchend', toggleMenu.bind(event));
+//     servicesMenuItem.addEventListener('touchend', toggleSubMenu.bind(event));
+// }
+
+
+
+
+
+
+
+
+
+
 /*
     =============================================
         GENERAL: STUFF TO DO WHEN DOM'S READY
@@ -75,18 +74,31 @@ const gap = (max:number) => {
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM entièrement chargé et analysé");
 
+    const burger:HTMLElement = document.getElementById('burger');
+    const menu = document.querySelector('nav');
+
+    document.addEventListener('click', (event) => {
+        const element = event.target as HTMLElement;
+        if (element.id === "burger") {
+            console.log('burger fired!');
+            menu.classList.toggle('visible');
+        }
+    });
+
+    // document.addEventListener('touchend', (event) => {
+
+    //     const element = event.target as HTMLElement;
+
+    //     if (element.id === "burger") {
+    //         console.log('burger fired! (touchend)');
+    //     }
+    // });
+
     if (document.body.classList.contains('home')) {
-        // console.log('Whe are at home! •');
-        // const bulletControl = document.createElement('ul');
 
         const testimonialsSlider:HTMLElement = document.querySelector('.testimonials .slider .wp-block-group__inner-container');
         const testimonials = Array.from(testimonialsSlider.querySelectorAll('p'));
         console.log(testimonialsSlider);
-        
-
-        console.log(`length is ${testimonials.length}`);
-
-        
 
         let roll = setInterval( () => {
             gap(testimonials.length);
@@ -94,27 +106,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }, 3000);
     }
 
-    // const chirs = Array.from( document.querySelectorAll('.surgeries .wp-block-column'));
 
-    // if (chirs.length > 0) {
-    //     document.addEventListener('mouseover', (event) => {
-    //         const element = event.target as HTMLElement;
 
-    //         if ( chirs.indexOf(element.parentElement) > -1 && !element.parentElement.classList.contains('hovered') ) {
-
-    //             element.parentElement.classList.add('hovered');
-    //             // classSheduler(element.parentElement, 'hovered', 1000);
-    //         }
-    //     });
-    //     document.addEventListener('mouseout', (event) => {
-    //         const element = event.target as HTMLElement;
-    //         if ( chirs.indexOf(element.parentElement) > -1 && element.parentElement.classList.contains('hovered') ) {
-    //             window.setTimeout( () => {
-    //                 element.parentElement.classList.remove('hovered');
-    //             }, 1100);
-    //         }
-    //     });
-    // }
-
-    // console.log(chirs);
 });

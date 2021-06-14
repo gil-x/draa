@@ -101,9 +101,11 @@ body.home .introduction {
     hr {
         height: 5px;
         clip-path: polygon(10% 0%, 20% 0%, 20% 100%, 10% 100%);
+        z-index: -9999;
 
         @media screen and (max-width: 800px) {
             clip-path: polygon(35% 0%, 65% 0%, 65% 100%, 35% 100%);
+            position: relative;
         }
     }
 
@@ -455,8 +457,8 @@ body.home .contact {
 
     background: $pink;
     padding: 3rem 0 5rem;
-    z-index: 100;
-    position: relative;
+    // z-index: 100;
+    // position: relative;
 
     h2 {
         color: $white;

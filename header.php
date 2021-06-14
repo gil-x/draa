@@ -8,11 +8,11 @@
 	</head>
 
 <?php
+
 if (is_front_page()) {
 	echo '<body class="home">';
-}
-else {
-	echo '<body>';
+} else {
+	echo '<body class="page">';
 }
 ?>
 
@@ -25,10 +25,12 @@ else {
 	</div>
 
 	<?php
-	echo '<nav id="menu" class="menu-off">';
+	echo '<nav id="menu">';
 	wp_nav_menu(array('theme_location'=>'primary'));
 	echo '</nav>';
 	?>
+
+	<input id="burger" type="button">
 
 	<div class="header-bg"></div>
 
