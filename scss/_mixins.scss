@@ -11,6 +11,7 @@
     font-family: 'M PLUS Rounded 1c', sans-serif;
     text-transform: uppercase;
     transition: transform 0.25s;
+    cursor: pointer;
 
     &:hover {
         background: $hover-color;

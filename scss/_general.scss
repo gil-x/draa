@@ -16,10 +16,13 @@
 html {
 
     font-size: 18px;
+    background: $background;
     
     @media screen and (max-width: 1366px) {
         font-size: 13px;
     }
+
+    
 
     // @media screen and (max-width: 800px) {
     //     font-size: 18px;
@@ -45,7 +48,8 @@ main {
     margin: 0 auto;
 
     @media screen and (max-width: 800px) {
-        width: 100%;
+        width: 92%;
+
     }
 }
 
@@ -73,7 +77,8 @@ footer {
     background: $black;
     color: $white;
     margin: 0;
-    padding: 2rem calc((100% - 1440px) / 2);
+    // padding: 2rem calc((100% - 1440px) / 2);
+    padding: 2rem 10%;
 
     .social {
         a {

@@ -1,7 +1,7 @@
 .page {
 
     h1 {
-        width: 80%;
+        // width: 80%;
         margin: 0 auto 2rem;
     }
 
@@ -33,7 +33,11 @@
     width: 100%;
 }
 
-.posts-pagination {
+h2.screen-reader-text {
+    display: none;
+}
+
+.nav-links {
     list-style-type: none;
     display: flex;
     justify-content: center;
@@ -41,7 +45,121 @@
     margin: 0 auto 2rem;
     text-align: justify;
 
-    li {
+    & > span, & > a {
         margin: 0 15px;
+        color: $purple;
+
+        &.page-numbers.current {
+            color: $pink;
+            font-weight: bold;
+        }
     }
+}
+
+#posts-navigation {
+    // text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+
+    span, span a {
+        // color: $pink;
+        // font-weight: bold;
+        color: $purple;
+    }
+
+}
+
+.contact-page {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    h1 {
+        flex-basis: 100%;
+    }
+
+    .wp-block-group, div[role="form"] {
+
+        flex-basis: 50%;
+
+        h2 {
+            text-align: left;
+            color: $purple;
+            font-size: $font-m;
+        }
+
+        ul {
+
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                height: 40px;
+                padding: 0 0 0 50px;
+                transition: background 0.5s;
+                margin: 2rem 0;
+
+                &:nth-child(1) {
+                    background: url(../img/icon-phone-purple.svg)  no-repeat 5px center / 30px;
+                    cursor: pointer;
+    
+                    @media screen and (max-width: 800px) {
+                        background: url(../img/icon-phone-purple.svg)  no-repeat top center / 60px;
+                    }
+    
+                    &:hover {
+                        background-size: 40px;
+                        background-position: left center;
+    
+                        @media screen and (max-width: 800px) {
+                            background-size: 50px;
+                            background-position: top center;
+                        }
+                    }
+                }
+
+                &:nth-child(2) {
+                    background: url(../img/icon-phone-purple.svg)  no-repeat 5px center / 30px;
+                    cursor: pointer;
+    
+                    @media screen and (max-width: 800px) {
+                        background: url(../img/icon-phone-purple.svg)  no-repeat top center / 60px;
+                    }
+    
+                    &:hover {
+                        background-size: 40px;
+                        background-position: left center;
+    
+                        @media screen and (max-width: 800px) {
+                            background-size: 50px;
+                            background-position: top center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    form {
+
+        input, textarea {
+            border: none;
+            padding: 1rem;
+            border-radius: 5px;
+            width: calc(100% - 2rem);
+        }
+
+        input[type="submit"] {
+            @include yellow-button;
+            width: 120px;
+            display: block;
+            margin: 1rem auto;
+        }
+    }
+
+    
 }

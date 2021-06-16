@@ -28,6 +28,11 @@ header {
         height: 30px;
         border: 1px none;
         background: url(../img/burger.svg) no-repeat;
+        display: none;
+
+        @media screen and (max-width: 800px) {
+            display: block;
+        }
     }
 
     @media screen and (max-width: 800px) {
@@ -117,6 +122,10 @@ header {
                         background: $white;
                         filter: drop-shadow(0 0 3px rgba($color: $white, $alpha: 0.5) );
                         transform: scale(1.2);
+
+                        @media screen and (max-width: 800px) {
+                            transform: none;
+                        }
                     }
 
                     &-fr {

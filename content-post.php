@@ -1,6 +1,6 @@
-<h1><?php the_title(); ?></h1>
-
 <main>
+
+    <h1><?php the_title(); ?></h1>
     
     <?php 
     // echo '<a href="'. get_the_post_thumbnail_url( $_post->ID, 'post-thumbnail' ) .'" class="lightbox" >';

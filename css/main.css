@@ -10,6 +10,7 @@
 }
 html {
   font-size: 18px;
+  background: #f7f6fe;
 }
 @media screen and (max-width: 1366px) {
   html {
@@ -36,7 +37,7 @@ main {
 }
 @media screen and (max-width: 800px) {
   main {
-    width: 100%;
+    width: 92%;
   }
 }
 
@@ -61,7 +62,7 @@ footer {
   background: #333333;
   color: white;
   margin: 0;
-  padding: 2rem calc((100% - 1440px) / 2);
+  padding: 2rem 10%;
 }
 footer .social a {
   display: inline-block;
@@ -116,6 +117,12 @@ header #burger {
   height: 30px;
   border: 1px none;
   background: url(../img/burger.svg) no-repeat;
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  header #burger {
+    display: block;
+  }
 }
 @media screen and (max-width: 800px) {
   header {
@@ -189,6 +196,11 @@ header nav#menu ul li.lang-item:hover {
   background: white;
   filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
   transform: scale(1.2);
+}
+@media screen and (max-width: 800px) {
+  header nav#menu ul li.lang-item:hover {
+    transform: none;
+  }
 }
 header nav#menu ul li.lang-item-fr {
   margin-left: 50px;
@@ -394,6 +406,7 @@ body.home .introduction a {
   font-family: "M PLUS Rounded 1c", sans-serif;
   text-transform: uppercase;
   transition: transform 0.25s;
+  cursor: pointer;
   margin: 2rem 0;
 }
 body.home .introduction a:hover {
@@ -525,6 +538,7 @@ body.home .surgeries .wp-block-group__inner-container .wp-block-columns .wp-bloc
   font-family: "M PLUS Rounded 1c", sans-serif;
   text-transform: uppercase;
   transition: transform 0.25s;
+  cursor: pointer;
 }
 body.home .surgeries .wp-block-group__inner-container .wp-block-columns .wp-block-column p a:hover {
   background: #6f28cc;
@@ -595,6 +609,7 @@ body.home .help .wp-block-group__inner-container .wp-block-columns .wp-block-col
   font-family: "M PLUS Rounded 1c", sans-serif;
   text-transform: uppercase;
   transition: transform 0.25s;
+  cursor: pointer;
   margin: 1rem 0 0;
 }
 body.home .help .wp-block-group__inner-container .wp-block-columns .wp-block-column > p a:hover {
@@ -620,6 +635,7 @@ body.home .help .wp-block-group__inner-container .wp-block-columns .wp-block-col
   font-family: "M PLUS Rounded 1c", sans-serif;
   text-transform: uppercase;
   transition: transform 0.25s;
+  cursor: pointer;
 }
 body.home .help .wp-block-group__inner-container .wp-block-columns .wp-block-column > p.purple a:hover {
   background: #e13756;
@@ -833,6 +849,7 @@ body.home .contact ul li:last-child a {
   font-family: "M PLUS Rounded 1c", sans-serif;
   text-transform: uppercase;
   transition: transform 0.25s;
+  cursor: pointer;
 }
 body.home .contact ul li:last-child a:hover {
   background: #6f28cc;
@@ -861,7 +878,6 @@ body.home .map .wp-block-group__inner-container iframe {
 }
 
 .page h1 {
-  width: 80%;
   margin: 0 auto 2rem;
 }
 .page main .post-container {
@@ -888,7 +904,11 @@ body.home .map .wp-block-group__inner-container iframe {
   width: 100%;
 }
 
-.posts-pagination {
+h2.screen-reader-text {
+  display: none;
+}
+
+.nav-links {
   list-style-type: none;
   display: flex;
   justify-content: center;
@@ -896,6 +916,121 @@ body.home .map .wp-block-group__inner-container iframe {
   margin: 0 auto 2rem;
   text-align: justify;
 }
-.posts-pagination li {
+.nav-links > span, .nav-links > a {
   margin: 0 15px;
+  color: #6f28cc;
+}
+.nav-links > span.page-numbers.current, .nav-links > a.page-numbers.current {
+  color: #e13756;
+  font-weight: bold;
+}
+
+#posts-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+}
+#posts-navigation span, #posts-navigation span a {
+  color: #6f28cc;
+}
+
+.contact-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+.contact-page h1 {
+  flex-basis: 100%;
+}
+.contact-page .wp-block-group, .contact-page div[role=form] {
+  flex-basis: 50%;
+}
+.contact-page .wp-block-group h2, .contact-page div[role=form] h2 {
+  text-align: left;
+  color: #6f28cc;
+  font-size: 1.2rem;
+}
+.contact-page .wp-block-group ul, .contact-page div[role=form] ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.contact-page .wp-block-group ul li, .contact-page div[role=form] ul li {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 0 0 50px;
+  transition: background 0.5s;
+  margin: 2rem 0;
+}
+.contact-page .wp-block-group ul li:nth-child(1), .contact-page div[role=form] ul li:nth-child(1) {
+  background: url(../img/icon-phone-purple.svg) no-repeat 5px center/30px;
+  cursor: pointer;
+}
+@media screen and (max-width: 800px) {
+  .contact-page .wp-block-group ul li:nth-child(1), .contact-page div[role=form] ul li:nth-child(1) {
+    background: url(../img/icon-phone-purple.svg) no-repeat top center/60px;
+  }
+}
+.contact-page .wp-block-group ul li:nth-child(1):hover, .contact-page div[role=form] ul li:nth-child(1):hover {
+  background-size: 40px;
+  background-position: left center;
+}
+@media screen and (max-width: 800px) {
+  .contact-page .wp-block-group ul li:nth-child(1):hover, .contact-page div[role=form] ul li:nth-child(1):hover {
+    background-size: 50px;
+    background-position: top center;
+  }
+}
+.contact-page .wp-block-group ul li:nth-child(2), .contact-page div[role=form] ul li:nth-child(2) {
+  background: url(../img/icon-phone-purple.svg) no-repeat 5px center/30px;
+  cursor: pointer;
+}
+@media screen and (max-width: 800px) {
+  .contact-page .wp-block-group ul li:nth-child(2), .contact-page div[role=form] ul li:nth-child(2) {
+    background: url(../img/icon-phone-purple.svg) no-repeat top center/60px;
+  }
+}
+.contact-page .wp-block-group ul li:nth-child(2):hover, .contact-page div[role=form] ul li:nth-child(2):hover {
+  background-size: 40px;
+  background-position: left center;
+}
+@media screen and (max-width: 800px) {
+  .contact-page .wp-block-group ul li:nth-child(2):hover, .contact-page div[role=form] ul li:nth-child(2):hover {
+    background-size: 50px;
+    background-position: top center;
+  }
+}
+.contact-page form input, .contact-page form textarea {
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  width: calc(100% - 2rem);
+}
+.contact-page form input[type=submit] {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #f8e61b;
+  text-decoration: none;
+  transition: all 0.25s;
+  font-size: 1.2rem;
+  color: #333333;
+  border-radius: 2rem;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  text-transform: uppercase;
+  transition: transform 0.25s;
+  cursor: pointer;
+  width: 120px;
+  display: block;
+  margin: 1rem auto;
+}
+.contact-page form input[type=submit]:hover {
+  background: #6f28cc;
+  color: white;
+  transform: scale(1.1);
+}
+@media screen and (max-width: 800px) {
+  .contact-page form input[type=submit] {
+    padding: 1rem 2rem;
+    border-radius: 5rem;
+  }
 }
