@@ -285,16 +285,16 @@ header nav#menu ul li .sub-menu li:hover a {
   }
 }
 
-body.home .wp-block-group:not(.introduction, .video, .insurance) {
+body.home .wp-block-group:not(.introduction, .video, .insurance, .map, .partners) {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
   animation: diagonalyse 1s 2s 1 forwards;
   margin: 0 auto -75px;
 }
-body.home .wp-block-group:not(.introduction, .video, .insurance) .wp-block-columns {
+body.home .wp-block-group:not(.introduction, .video, .insurance, .map, .partners) .wp-block-columns {
   display: grid;
 }
 @media screen and (max-width: 800px) {
-  body.home .wp-block-group:not(.introduction, .video, .insurance) .wp-block-columns {
+  body.home .wp-block-group:not(.introduction, .video, .insurance, .map, .partners) .wp-block-columns {
     display: block;
   }
 }
@@ -472,8 +472,8 @@ body.home .insurance .wp-block-group__inner-container .wp-block-columns .wp-bloc
     ===============
 */
 body.home .surgeries .wp-block-group__inner-container {
-  background: #f7f6fe;
   padding: 5vh 0 0 0;
+  background: white;
 }
 body.home .surgeries .wp-block-group__inner-container .wp-block-columns {
   grid-template-columns: repeat(4, 1fr);
@@ -667,6 +667,7 @@ body.home .help .wp-block-group__inner-container .wp-block-columns .wp-block-col
 */
 body.home .testimonials .wp-block-group__inner-container {
   min-height: 350px;
+  background: white;
 }
 body.home .testimonials .wp-block-group__inner-container h2 {
   margin: 0 0 1rem;
@@ -871,10 +872,35 @@ body.home .contact ul li:last-child a:hover {
 body.home .map .wp-block-group__inner-container {
   animation: none;
   margin: 0 auto 50px;
+  z-index: 100;
+  position: relative;
 }
 body.home .map .wp-block-group__inner-container iframe {
   width: 100%;
   z-index: -100;
+}
+
+/*
+    ========
+    Partners
+    ========
+*/
+.partners {
+  margin: -3rem 0 -1rem 0;
+  padding: 2rem 0;
+  background: white;
+}
+.partners ul.blocks-gallery-grid li.blocks-gallery-item figure {
+  display: grid;
+  place-items: center;
+}
+.partners ul.blocks-gallery-grid li.blocks-gallery-item figure img {
+  width: 80% !important;
+  height: auto !important;
+}
+.partners ul.blocks-gallery-grid li.blocks-gallery-item:nth-child(4) img {
+  width: 50% !important;
+  height: auto !important;
 }
 
 .page h1 {

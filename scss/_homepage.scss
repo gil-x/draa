@@ -1,4 +1,4 @@
-body.home .wp-block-group:not(.introduction, .video, .insurance) {
+body.home .wp-block-group:not(.introduction, .video, .insurance, .map, .partners) {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 100%);
     animation: diagonalyse 1s 2s 1 forwards;
     margin: 0 auto -75px;
@@ -190,8 +190,9 @@ body.home .insurance .wp-block-group__inner-container .wp-block-columns {
 */
 body.home .surgeries .wp-block-group__inner-container {
 
-    background: $gray-light;
+    // background: $gray-light;
     padding: 5vh 0 0 0;
+    background: white;
 
     .wp-block-columns {
 
@@ -351,6 +352,7 @@ body.home .help .wp-block-group__inner-container .wp-block-columns {
 body.home .testimonials .wp-block-group__inner-container {
 
     min-height: 350px;
+    background: white;
 
     h2 {
         margin: 0 0 1rem;
@@ -556,9 +558,46 @@ body.home .map .wp-block-group__inner-container {
 
     animation: none;
     margin: 0 auto 50px;
+    z-index: 100;
+    position: relative;
 
     iframe {
         width: 100%;
         z-index: -100;
+    }
+}
+
+/*
+    ========
+    Partners
+    ========
+*/
+.partners {
+    margin: -3rem 0 -1rem 0;
+    padding: 2rem 0;
+    background: white;
+
+    h2 {
+        // margin: 5rem 0 0 0;
+    }
+    ul.blocks-gallery-grid {
+        li.blocks-gallery-item {
+            figure {
+                display: grid;
+                place-items: center;
+
+                img {
+                    width: 80% !important;
+                    height: auto !important;
+                }
+            }
+            &:nth-child(4) { // IMSS
+                img {
+                    width: 50% !important;
+                    height: auto !important;
+                }
+            }
+        }
+        
     }
 }
