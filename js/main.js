@@ -31,6 +31,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
         let roll = setInterval(() => {
             gap(testimonials.length);
             setTranslation(testimonialsSlider, currentGap);
-        }, 3000);
+        }, 6000);
     }
 });

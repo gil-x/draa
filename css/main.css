@@ -302,7 +302,7 @@ body.home .wp-block-group:not(.introduction, .video, .insurance, .map, .partners
 body.home h1 {
   height: 5vh;
   margin: 0;
-  padding: 0 0 0 10%;
+  padding: 0 0 0 0;
   color: white;
 }
 
@@ -359,7 +359,7 @@ body.home .introduction {
 }
 body.home .introduction h2, body.home .introduction p {
   width: 40%;
-  padding: 0 0 0 10%;
+  padding: 0 0 0 0;
 }
 @media screen and (max-width: 800px) {
   body.home .introduction h2, body.home .introduction p {
@@ -380,7 +380,7 @@ body.home .introduction h2 {
 }
 body.home .introduction hr {
   height: 5px;
-  clip-path: polygon(10% 0%, 20% 0%, 20% 100%, 10% 100%);
+  clip-path: polygon(0% 0%, 10% 0%, 10% 100%, 0% 100%);
   z-index: -9999;
 }
 @media screen and (max-width: 800px) {
@@ -901,6 +901,19 @@ body.home .map .wp-block-group__inner-container iframe {
 .partners ul.blocks-gallery-grid li.blocks-gallery-item:nth-child(4) img {
   width: 50% !important;
   height: auto !important;
+}
+
+.wp-block-group.partners .wp-block-group__inner-container .wp-block-columns {
+  justify-content: center;
+  align-content: center;
+}
+.wp-block-group.partners .wp-block-group__inner-container .wp-block-columns .wp-block-column {
+  display: grid;
+  place-items: center;
+}
+.wp-block-group.partners .wp-block-group__inner-container .wp-block-columns img {
+  width: auto;
+  height: auto;
 }
 
 .page h1 {
