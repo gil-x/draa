@@ -118,6 +118,13 @@ body.home .introduction {
         // @media screen and (max-width: 800px) {
         //     color: $black;
         // }
+
+        strong {
+            // color: red;
+            // font-weight: 700;
+            text-shadow: white 1px 0 0;
+        }
+        
     }
 
     a {

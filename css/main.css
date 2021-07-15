@@ -29,6 +29,9 @@ body .content > h2, body .wp-block-group__inner-container > h2 {
   text-align: center;
   font-size: 2.2rem;
 }
+body strong {
+  text-shadow: #333333 1px 0 0;
+}
 
 main {
   padding: 0;
@@ -78,6 +81,9 @@ footer .social a:nth-child(1) {
 }
 footer .social a:nth-child(2) {
   background: url(../img/icon-twitter.svg) no-repeat center center/50% rgba(255, 255, 255, 0.1);
+}
+footer .social a:nth-child(3) {
+  background: url(../img/icon-instagram.svg) no-repeat center center/50% rgba(255, 255, 255, 0.1);
 }
 footer .social a:hover {
   filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
@@ -177,6 +183,20 @@ header nav#menu ul li a {
   text-transform: uppercase;
   font-size: 1.2rem;
   color: white;
+}
+header nav#menu ul li.homelink {
+  background: url("data:image/svg+xml;utf8,<svg width='30' height='30' version='1.1' viewBox='0 0 230.262 230.262' xmlns='http://www.w3.org/2000/svg'><path d='m228.06 125.59-51.619-51.615v-50.709c0-4.142-3.357-7.5-7.5-7.5s-7.5 3.358-7.5 7.5v35.709l-41.016-41.012c-2.928-2.929-7.677-2.928-10.606 0l-107.63 107.63c-2.929 2.929-2.929 7.678 0 10.606 2.93 2.929 7.678 2.929 10.608 0l18.72-18.72v89.525c0 4.142 3.357 7.5 7.5 7.5h152.22c4.143 0 7.5-3.358 7.5-7.5v-89.524l18.721 18.719c1.464 1.464 3.384 2.196 5.303 2.196s3.839-0.732 5.304-2.197c2.926-2.928 2.926-7.676-3e-3 -10.605zm-44.326 73.912h-137.22v-97.025l68.604-68.604 68.611 68.606v97.023z' fill='rgb(255,255,255)' /></svg>") no-repeat center center;
+  transition: filter 1.5s, transform 0.5s;
+}
+header nav#menu ul li.homelink:hover {
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+  transform: scale(1.2);
+}
+header nav#menu ul li.homelink a {
+  font-size: 0;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
 }
 header nav#menu ul li:hover .sub-menu {
   transform: translateY(0);
@@ -393,6 +413,9 @@ body.home .introduction p {
   font-size: 1.2rem;
   font-weight: bold;
   color: white;
+}
+body.home .introduction p strong {
+  text-shadow: white 1px 0 0;
 }
 body.home .introduction a {
   display: inline-block;
